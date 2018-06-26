@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Catalog Project</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styles.css')}}" />
+</head>
+
+<body class="page">
+    <main class="main">
+        <header class="header">
+            <h1>Welcome to Item Catalog Project</h1>
+            <a href="{{url_for('gdisconnect')}}"><button class="btn">Log Out</button></a>
+        </header>
+        <div class="content">
+            <section class="category">
+                <span class="heading">Manufacturers</span>
+                <ul>
+                    {% for cat in manufacturers %}
+                    <li><a href="{{url_for('viewCars', manufacturer = cat.manufacturer)}}" class="cat-list">{{cat.manufacturer}}</a></li>
+                    {% endfor %}
+
+                </ul>
+            </section>
+            <section class="items">
+                <span class="heading">Latest Cars</span>
+                <span class="add-item"><a href="{{url_for('addCar')}}">(Add Car)</a></span>
+                <ul>{% for lat in latestCars %}
+                    <li><a href="{{url_for('viewCar', car = lat.name, manufacturer = lat.manufacturer)}}" class="cat-list">{{lat.name}}&nbsp;&nbsp;(manufactured by {{lat.manufacturer}})</a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+        <footer class="foot">
+            <span class="heading">Developed by Vikrant Kadian</span>
+        </footer>
+    </main>
+</body>
+
+</html>

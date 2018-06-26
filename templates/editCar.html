@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Car</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styles.css')}}" />
+</head>
+
+<body>
+    <main>
+        <span class="heading">Edit Car</span>
+        <form action="{{url_for('editCar', manufacturer = model.manufacturer, car = model.name)}}" method="POST">
+            <br/>
+            <span class="title">Name</span><br/>
+            <input type="text" name="name" value="{{model.name}}" class="box" required /><br/><br/> <span class="title">Description</span><br/>
+            <textarea name="desc" class="box" required>{{model.description}}</textarea><br/><br/><span class="title">Category</span><br/>
+            <select name="cat" class="box">
+                <option value="Toyota">Toyota</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="BMW">BMW</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Audi">Audi</option>
+            </select><br/><br/>
+            <input type="submit" value="Edit" class="form-btn" />
+        </form>
+    </main>
+</body>
+
+</html>
